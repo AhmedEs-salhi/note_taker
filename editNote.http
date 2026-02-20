@@ -1,0 +1,16 @@
+### GET request to example server
+PATCH http://localhost/notes
+Content-Type: application/json
+
+{
+  "_method": "PATCH",
+  "id": "this is a new title",
+  "content": "This is the new content"
+}
+
+###
+
+GET http://localhost/note/edit?id=80
+###
+
+POST http://localhost/register
