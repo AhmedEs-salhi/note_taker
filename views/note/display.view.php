@@ -12,8 +12,9 @@
             </div>
             <div class="grid grid-cols-3 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 border border-gray-900/10 p-10 rounded-md">
                 <?php if ($notes === []):?>
-                <div class="col-span-full flex justify-center align-center">
-                    <p class="text-gray-500 text-align-center">You don't have any notes. Create new Note...</p>
+                <div class="col-span-full flex justify-center items-center flex-col gap-y-3">
+                    <i class="fa-solid fa-inbox fa-3x text-gray-500"></i>
+                    <p class="text-gray-500 text-align-center font-bold">You don't have any notes. Create new Note...</p>
                 </div>
                 <?php endif;?>
                 <?php $notes = array_reverse($notes); ?>

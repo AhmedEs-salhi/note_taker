@@ -1,8 +1,6 @@
 <?php
 
-use JetBrains\PhpStorm\NoReturn;
-
-    #[NoReturn]
+    use Core\Session;
     function dumpAndDie($value) :void {
         echo '<pre>';
         var_dump($value);
@@ -35,24 +33,11 @@ use JetBrains\PhpStorm\NoReturn;
         require basePath('views/' . $path);
     }
 
-    function extractNameFromEmail($email) :string {
-        $offset = strcspn($email, '@');
-        return substr($email, 0, $offset);
+    function redirect($path) :void {
+        header("location: {$path}");
+        die();
     }
 
-    function login($user) {
-        $_SESSION['user'] = [
-            'id' => $user['id'],
-            'email' => $user['email'],
-            'first_name' => $user['first_name'],
-            'last_name' => $user['last_name']
-        ];
-    }
-
-    function logout() {
-        $_SESSION = [];
-        session_destroy();
-
-        $params = session_get_cookie_params();
-        setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    function old($key, $default = '') {
+        return Session::get('old')[$key] ?? $default;
     }

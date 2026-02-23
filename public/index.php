@@ -22,3 +22,5 @@
 
     require basePath('bootstrap.php');
     $router->route($uri, $method);
+
+    unset($_SESSION['_flash']['errors']);
