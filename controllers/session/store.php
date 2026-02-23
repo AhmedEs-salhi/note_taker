@@ -17,8 +17,6 @@
         Session::flash('old', [
            'email' => $email
         ]);
-
-        #dumpAndDie($_SESSION);
     }
 
     redirect('/login');
